@@ -39,10 +39,6 @@ module Crunchbase
       end
     end
 
-    def fully_initialized?
-      !! fully_initialized
-    end
-
     def fetch_json!
       raise("path not defined") unless path
       url = API_BASE + path
@@ -62,10 +58,9 @@ module Crunchbase
     end
 
     def method_missing(method_name, *args, &block)
-      if fully_initialized?
+      if fully_initialized
 	return super
       else
-	binding.pry
 	fully_initilize!
 	send(method_name, *args, block)
       end
