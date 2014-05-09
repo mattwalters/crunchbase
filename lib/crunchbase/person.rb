@@ -5,7 +5,7 @@ module Crunchbase
     include Crunchbase::DateMethods
 
     class << self 
-      def entity_name
+      def entity_type
 	"person"
       end
     end
