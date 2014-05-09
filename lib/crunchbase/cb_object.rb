@@ -13,7 +13,7 @@ module Crunchbase
       @type = json["data"]["type"]
       @available_properties = json["data"]["properties"].keys
       json["data"]["properties"].each do |property_name, value|
-	define_method(property_name) { value }
+	define_singleton_method(property_name) { value }
       end
       @available_relationships = json["data"]["relationships"].keys
     end
