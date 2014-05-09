@@ -65,6 +65,7 @@ module Crunchbase
       if fully_initialized?
 	return super
       else
+	binding.pry
 	fully_initilize!
 	send(method_name, *args, block)
       end
