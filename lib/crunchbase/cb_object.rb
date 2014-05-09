@@ -13,8 +13,7 @@ module Crunchbase
       @type = json["data"]["type"]
       @available_properties = json["data"]["properties"].keys
       json["data"]["properties"].each do |property_name, value|
-	instance_variable_set("@#{property_name}", value)
-	attr_reader property_name
+	define_method(property_name) { value }
       end
       @available_relationships = json["data"]["relationships"].keys
     end
