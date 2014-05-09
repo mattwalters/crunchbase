@@ -59,6 +59,7 @@ module Crunchbase
 
     def method_missing(method_name, *args, &block)
       if fully_initialized
+	puts "good to go"
 	return super
       else
 	fully_initilize!
