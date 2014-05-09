@@ -62,6 +62,8 @@ module Crunchbase
 	return super
       else
 	fully_initilize!
+	puts "sending #{method_name}"
+	puts "full_initialized? #{fully_initialized}"
 	send(method_name, *args, block)
       end
     end
