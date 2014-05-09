@@ -17,7 +17,7 @@ module Crunchbase
 	raise NotImplementedError
       end
       def find(permalink)
-	new("path" => "#{self.class.entity_type}/#{permalink}")
+	new("path" => "#{entity_type}/#{permalink}")
       end
     end
 
