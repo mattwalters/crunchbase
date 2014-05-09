@@ -17,7 +17,7 @@ module Crunchbase
   # methods provided on each entity class instead of calling these directly.
   class API
     CB_URL = 'http://api.crunchbase.com/v/2/'
-    SUPPORTED_ENTITIES = ['person', 'company', 'financial-organization', 'product', 'service-provider']
+    SUPPORTED_ENTITIES = [ 'person' ]
     @timeout_limit = 60
     @redirect_limit = 2
     class << self; attr_accessor :timeout_limit, :redirect_limit, :key end

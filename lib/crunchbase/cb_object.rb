@@ -6,6 +6,18 @@ module Crunchbase
     # Must be overridden in subclasses
     ENT_NAME = "undefined"
     ENT_PLURAL = "undefineds"
+
+    attr_reader :type, :available_properties
+
+    def initialize(json)
+      @type = json["data"]["type"]
+      @available_properties = json["data"]["properties"].keys
+      json["data"]["properties"].each do |property_name, value|
+	instance_variable_set("@#{property_name}", value)
+	attr_reader property_name
+      end
+      @available_relationships = json["data"]["relationships"].keys
+    end
     
     # Returns an array of tags
     def tags
