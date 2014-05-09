@@ -1,5 +1,6 @@
 require 'crunchbase/api'
 require 'crunchbase/cb_object'
+require 'crunchbase/entity'
 require 'crunchbase/date_methods'
 require 'crunchbase/array_from_list'
 require 'crunchbase/image'
