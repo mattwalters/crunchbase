@@ -16,7 +16,7 @@ module Crunchbase
   # JSON returned from the API. You should probably be using the factory
   # methods provided on each entity class instead of calling these directly.
   class API
-    CB_URL = 'http://api.crunchbase.com/v/1/'
+    CB_URL = 'http://api.crunchbase.com/v/2/'
     SUPPORTED_ENTITIES = ['person', 'company', 'financial-organization', 'product', 'service-provider']
     @timeout_limit = 60
     @redirect_limit = 2
@@ -28,7 +28,7 @@ module Crunchbase
     end
     
     def self.all(entity)
-      uri = CB_URL + entity + ".js"
+      uri = CB_URL + entity 
       get_json_response(uri)
     end
     
@@ -45,7 +45,7 @@ module Crunchbase
 
     # Fetches URI for the permalink interface.
     def self.fetch(permalink, object_name)
-      uri = CB_URL + "#{object_name}/#{permalink}.js"
+      uri = CB_URL + "#{object_name}/#{permalink}"
       get_json_response(uri)
     end
     
@@ -76,7 +76,7 @@ module Crunchbase
     # JSON contains an error.
     def self.get_json_response(uri)
       raise CrunchException, "API key required, visit http://developer.crunchbase.com" unless @key
-      uri = uri + "#{uri.match('\?') ? "&" : "?"}api_key=#{@key}"
+      uri = uri + "#{uri.match('\?') ? "&" : "?"}user_key=#{@key}"
       resp = Timeout::timeout(@timeout_limit) {
         get_url_following_redirects(uri, @redirect_limit)
       }
