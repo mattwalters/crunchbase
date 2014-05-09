@@ -10,7 +10,7 @@ module Crunchbase
     API_BASE = 'http://api.crunchbase.com/v/2/'
     SUPPORTED_ENTITIES = [ 'person' ]
 
-    attr_reader :available_properties
+    attr_reader :available_properties, :fully_initialized
 
     class << self
       def entity_type
@@ -70,8 +70,6 @@ module Crunchbase
       end
     end
 
-    private 
-    attr_reader :fully_initialized
 
   end
 end
